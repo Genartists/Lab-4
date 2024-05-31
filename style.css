@@ -219,6 +219,7 @@ When unhover, go back to the original appearence)*/
     animation-name: showup;
     animation-timing-function: ease;
 }
+/* make delay animation, 3 paragraph show up one by one */
 .child {
     animation-duration: 1s;
     animation-name: showup;
