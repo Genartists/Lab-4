@@ -1,0 +1,302 @@
+/* My font that i choose for this assignment */
+@font-face {
+    font-family: Fontface;
+    src: url("/Font/LeagueSpartan-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+    font-family: Fontface2;
+    src: url("Font/Montserrat-Regular.ttf") format("truetype");
+}
+/* body styling */
+body {
+    background-color: #1d252c;
+    color: #fff;
+    font-family: Fontface, sans-serif;
+}
+
+/* heading styling*/
+header h1 {
+    font-family: Fontface;
+    margin-top: 0;
+    padding: 20px 50px;
+    margin-bottom: 50px;
+    font-size: 30px;
+    position: relative;
+    left: 2rem;
+}
+/* simple design for my headind 1 */
+header h1::before {
+    content: ".";
+    color: #f70b7f;
+    position: relative;
+    bottom: 1rem;
+}
+header h1::after {
+    content: ".";
+    color: #f70b7f;
+}
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+/* this .row value is how i separate content and make them inline */
+.row {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+
+}
+
+/* appearance animation for the left content (appearing from the left side) */
+.animate {
+    animation-duration: 1.5s;
+    animation-name: animate1;
+}
+@keyframes animate1 {
+    0%{
+        opacity: 0;
+        -webkit-transform: translateY(-5rem);
+        transform: translateY(-5rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translatex(0);
+        -webkit-transform: translateX(0);
+    }
+}
+/* appearence animation for the image (appearing from the right direction) */
+.animate2 {
+    animation-duration: 1.5s;
+    animation-name: animate2;
+}
+@keyframes animate2 {
+    0% {
+        opacity: 0;
+        -webkit-transform: translatex(10rem);
+        transform: translateX(10rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translatex(0);
+        -webkit-transform: translateX(0);
+    }
+}
+/* appearance animation for the social media links (appearing from below) */
+.animate3 {
+    animation-duration: 1.5s;
+    animation-name: animate3;
+}
+@keyframes animate3 {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(2rem);
+        transform: translatey(2rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translatex(0);
+        -webkit-transform: translateX(0);
+    }
+}
+
+/* styling for the left content */
+.left-col h2 {
+    font-size: 80px;
+    margin-bottom: -10px;
+    margin-top: 0;
+
+}
+.left-col h3 {
+    font-size: 30px;
+    margin-top: 15px;
+    color: #f70b7f;
+}
+.left-col p {
+    font-size: 15px;
+    width: 412px;
+    font-family: Fontface2;
+}
+/* styling for the right content (the image) */
+.right-col img {
+    border-radius: 30px;
+    height: auto;
+    max-width: 350px;
+    /* filter: drop-shadow(15px 15px 10px black); */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    animation: float 2s ease infinite;
+}
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translateY(-10px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translateY(0px);
+	}
+}
+
+/* styling for the "about me" button */
+.btn {
+    font-family: Fontface;
+    width: 150px;
+    height: 100%;
+    border-radius: 8px;
+    border: 3px solid #f70b7f;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 19px;   
+    justify-content: center;
+    position: relative;
+    color: #f70b7f;
+}
+/* add transition for the button when hovering (when hovering, fill background color and change text color. 
+When unhover, go back to the original appearence)*/
+.btn::before {
+    background: #f70b7f;
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: scalex(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+}
+.btn:hover::before {
+    transform: scalex(1);
+    transform-origin: left;
+}
+.btn:hover {
+    color: white;
+    transition: all 0.5s ease;
+}
+/* this is how i design the button when click on and off (When click on, paragraph appears. When click again, paragraph fade away.*/
+.aboutme2{
+    opacity: 1;
+    transition: all 1s ease-in-out;
+    position: relative;
+    top: 1rem;
+}
+#button_input:checked ~ .aboutme2 {
+    opacity: 0;
+    display: none;
+}
+
+#button_input:not(:checked) ~ .aboutme2 {
+    opacity: 1;
+    display: inline-block;
+    animation-duration: 2.5s;
+    animation-name: showup2;
+    animation-timing-function: ease;
+}
+@keyframes showup2 {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+}
+}
+.about-me {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    position: relative;
+    margin-bottom: 1rem;
+    top: 1rem;
+}
+#button_input:checked ~ .about-me {
+    opacity: 1;
+    animation-duration: 2s;
+    animation-name: showup;
+    animation-timing-function: ease;
+}
+.child {
+    animation-duration: 1s;
+    animation-name: showup;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+.child:nth-child(1) {
+    animation-delay: 0s;
+}
+.child:nth-child(2) {
+    animation-delay: 0.5s;
+}
+.child:nth-child(3) {
+    animation-delay: 1s;
+}
+@keyframes showup {
+    0%{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+ }
+}
+
+#button_input:not(:checked) ~ .about-me {
+    opacity: 0;
+    display: none;
+}
+
+/* Design for the footer containing 3 social media links */
+footer {
+    display: flex;
+    justify-content: center;
+}
+.media {
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+/* styling the fonts icon of the links */
+.media a {
+    position: relative;
+    display: flex;
+    top: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 3px solid #f70b7f;
+    border-radius: 50%;
+    font-size: 23px;
+    justify-content: center;
+    align-items: center;
+    color: #f70b7f;
+    text-decoration: none;
+    overflow: hidden;
+}
+/* adding transition for the links when hovering (when hovering, fill background color and change text color. 
+When unhover, go back to the original appearence) */
+.face::after, .ig::after, .link::after {
+    background: #f70b7f;
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: scaley(0);
+    transition: 0.5s ease-in-out;
+    z-index: -1;
+}
+.face:hover::after, .ig:hover::after, .link:hover::after {
+    transform: scalex(1);
+    transform-origin: left;
+}
+.face:hover, .ig:hover, .link:hover {
+    color: white;
+}
+
+
+
+
+
